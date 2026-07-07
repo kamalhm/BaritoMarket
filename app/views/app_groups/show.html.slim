@@ -124,12 +124,12 @@
         - override_map = ENV['BARITO_VIEWER_DOMAIN_OVERRIDED_MAP'].to_s.split(',').map { |pair| pair.split('=') }.to_h
         - viewer_domain = override_map[location_name] || Figaro.env.viewer_domain
 
-        .btn.btn-primary.btn-sm.mr-2
+        = link_to "#{Figaro.env.viewer_protocol}://#{viewer_domain}/#{@app_group.cluster_name}/", class: 'btn btn-primary btn-sm mr-2 text-light', target: '_blank', rel: 'noopener noreferrer', style: 'text-decoration: none' do
           i.fas.fa-search.mr-1
-          = link_to 'Open Kibana', "#{Figaro.env.viewer_protocol}://#{viewer_domain}/#{@app_group.cluster_name}/", target: '_blank', rel: 'noopener noreferrer', class: 'text-light', style: 'text-decoration: none'
-        .btn.btn-primary.btn-sm.mr-2
+          | Open Kibana
+        = link_to @open_katulampa_url, class: 'btn btn-primary btn-sm mr-2 text-light', target: '_blank', rel: 'noopener noreferrer', style: 'text-decoration: none' do
           i.fas.fa-tachometer-alt.mr-1
-          = link_to 'Monitoring', @open_katulampa_url, target: '_blank', rel: 'noopener noreferrer', class: 'text-light', style: 'text-decoration: none'
+          | Monitoring
 
         .btn.btn-primary.btn-sm.mr-2 data-toggle="modal" data-target="#manage-label-modal"
           i.fa.fa-tag.mr-1

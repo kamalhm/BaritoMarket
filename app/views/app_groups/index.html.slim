@@ -2,9 +2,9 @@
   h5.card-header
     | All Application Groups
     - if @allow_create_app_group
-      .btn.btn-success.btn-sm.float-right
+      = link_to new_app_group_path, class: 'btn btn-success btn-sm float-right text-light', style: 'text-decoration: none' do
         i.fas.fa-plus.mr-1
-        = link_to 'New Application Group', new_app_group_path, class: 'text-light', style: 'text-decoration: none'
+        | New Application Group
   .card-body.bg-light
     = form_for_filterrific @filterrific, html: { id: 'filterrific-no-ajax-auto-submit' } do |f|
       .row
